@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import bcrypt from 'bcryptjs';
-import { SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation';
 import { generateToken } from "@/utils/generateToken";
 import Cookies from 'js-cookie';
@@ -102,7 +102,7 @@ const Login = () => {
   };
 
 
-  const onEmailLogin: SubmitHandler<LoginFormData> = async (data) => {
+  const onEmailLogin: SubmitHandler<FieldValues> = async (data) => {
     const { email } = data;
     if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email address");

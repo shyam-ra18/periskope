@@ -14,15 +14,14 @@ export async function POST(req: Request) {
   }
 
   const token = generateToken(user);
-  console.log("token", token);
 
   const response = NextResponse.json({ success: true });
 
   // Set secure HttpOnly cookie
   response.cookies.set("access_token", token, {
-    // httpOnly: true,
+    httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax",
+    sameSite: "lax", // <--- Change "Lax" to "lax"
     maxAge: 60 * 60 * 24 * 7, // 7 days
     path: "/",
   });

@@ -29,7 +29,7 @@ const SelectedChat = () => {
     const user = useUserStore((state) => state.user)
     const messagesContainerRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null)
-    const fileInputRef = useRef<HTMLTextAreaElement>(null)
+    const fileInputRef = useRef<HTMLInputElement>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [selectedMessage, setSelectedMessage] = useState<any | null>(null);
@@ -370,7 +370,7 @@ const SelectedChat = () => {
                             </div>
 
                             {/* Messages */}
-                            {msgs?.map((msg: any) => (
+                            {Array.isArray(msgs) && msgs?.map((msg: any) => (
                                 <div
                                     key={msg.id}
                                     className='flex items-start gap-1 mt-1'>

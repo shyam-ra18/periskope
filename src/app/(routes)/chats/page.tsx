@@ -16,11 +16,7 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { LuRefreshCcwDot } from "react-icons/lu";
 import { MdInstallDesktop } from "react-icons/md";
 
-const Chats = ({
-    children,
-}: {
-    children: React.ReactNode;
-}) => {
+export default function ChatsPage() {
     const user = useUserStore((state) => state.user)
 
     return (
@@ -159,5 +155,3 @@ const Chats = ({
         </div>
     );
 }
-
-export default Chats;
