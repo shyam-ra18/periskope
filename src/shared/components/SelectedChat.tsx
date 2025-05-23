@@ -36,7 +36,7 @@ const SelectedChat = () => {
     const [showUserList, setShowUserList] = useState(false);
 
     const fetchAllUsers = async () => {
-        let userId: string | undefined;
+        let userId: string | undefined = '';
 
         const {
             data: { user },

@@ -48,7 +48,7 @@ export default function ChatBox() {
     const { setUser: setSelectedChatUser, user: currentUser } = useUserStore();
 
     const fetchAllUsers = useCallback(async () => {
-        let userId: string | undefined;
+        let userId: string | undefined = '';
 
         const {
             data: { user },
@@ -70,7 +70,7 @@ export default function ChatBox() {
                 }
             }
         }
-
+        console.log("userId", userId)
         if (!userId) {
             console.error('User ID not found');
             return;
